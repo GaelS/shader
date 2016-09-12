@@ -1,0 +1,31 @@
+<html>
+	<body>
+
+	</body>
+	
+	<script src="simple_vertex.js" type="x-shader/x-vertex" id='vertexShader'>
+	varying vec3 vNormal;	 
+	void main() {
+		vNormal = normal;
+		gl_Position = projectionMatrix *
+	    			modelViewMatrix *
+	                vec4(position,1.0);
+	}
+	</script>
+	<script src="simple_fragment.js" type="x-shader/x-fragment" id='fragmentShader'>
+	varying vec3 vNormal;	
+	void main() {
+	  vec3 light = vec3(0.5, 0.2, 1.0);
+
+	  // ensure it's normalized
+	  light = normalize(light);
+	  float dot = max(0.0, dot(vNormal, light));
+		  gl_FragColor = vec4(1.0 *dot ,  // R
+		                      0.0,  // G
+		                      1.0 * dot,  // B
+		                      1.0); // A
+		}
+	</script>
+	<script type="text/javascript" src="three.js"></script>	
+	<script type="text/javascript" src="scene.js"></script>	
+</html>
