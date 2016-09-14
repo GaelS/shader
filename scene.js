@@ -15,12 +15,14 @@ function init() {
     material = new THREE.ShaderMaterial({
     vertexShader:   document.getElementById('vertexShader').innerHTML,
     fragmentShader: document.getElementById('fragmentShader').innerHTML,
-  }); 
+    //lights : true,
+    }); 
     // new THREE.MeshBasicMaterial( { color: 0xff0000 } );
 
     mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
-
+    var light = new THREE.AmbientLight( 0x404040 ); // soft white light
+    scene.add( light );
     renderer = new THREE.WebGLRenderer();
     renderer.setSize( window.innerWidth, window.innerHeight );
 

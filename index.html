@@ -20,9 +20,9 @@
 	  // ensure it's normalized
 	  light = normalize(light);
 	  float dot = max(0.0, dot(vNormal, light));
-		  gl_FragColor = vec4(1.0 *dot ,  // R
+		  gl_FragColor = vec4(1.0  ,  // R
 		                      0.0,  // G
-		                      1.0 * dot,  // B
+		                      1.0 ,  // B
 		                      1.0); // A
 		}
 	</script>
